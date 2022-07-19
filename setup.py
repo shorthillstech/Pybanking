@@ -9,7 +9,7 @@ setup(
     name='pybanking',
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    version='0.3',
+    version='0.4',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
@@ -19,6 +19,9 @@ setup(
     keywords='banking project',
     install_requires=[
           'scikit-learn',
+          'pandas',
+          'numpy',
+          'bayesian-optimization'
       ],
 
 )
