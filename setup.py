@@ -9,7 +9,7 @@ setup(
     name='pybanking',
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    version='0.1',
+    version='0.2',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
