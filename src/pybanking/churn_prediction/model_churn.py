@@ -1,6 +1,10 @@
 import pandas as pd
 import numpy as np
-# from pycaret.classification import *
+
+import collections.abc
+collections.Iterable = collections.abc.Iterable
+
+from pycaret.classification import *
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
@@ -10,22 +14,17 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
 
-# from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import roc_auc_score
-from bayes_opt import BayesianOptimization, UtilityFunction
+from bayes_opt import BayesianOptimization, UtilityFunction # scipy==1.7.3
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 import warnings
 warnings.filterwarnings("ignore")
 
 def get_data(url = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv'):
-    # url = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv'
     df = pd.read_csv(url,index_col=0)
-    # Drop last two columns (unneeded)
-    # df = df.drop(df.columns[-2:], axis=1)
-
-    # Drop CLIENTNUM columns
-    # df = df.drop('CLIENTNUM', axis=1)
+    df = df.drop(df.columns[-2:], axis=1)
+#     df = df.drop('CLIENTNUM', axis=1)
     return df
 
 
@@ -48,7 +47,7 @@ def onehot_encode(df, column, prefix):
     return df
 
 # Preprocessing
-def preprocess_inputs(df):
+def preprocess_inputs(df, model_name = "Logistic_Regression"):
     df = df.copy()
     
     # Encode unknown values as np.NaN
@@ -93,6 +92,8 @@ def preprocess_inputs(df):
     scaler = StandardScaler()
     X = pd.DataFrame(scaler.fit_transform(X), columns=X.columns)
     
+    if model_name == "pycaret_best":
+        X = df
     return X, y
 
 
@@ -106,54 +107,73 @@ def train(df, model_name = "Logistic_Regression"):
     df.columns = [str(i) for i in range(n_cols)]
     df['0'] = df['0'].apply(lambda x: 1 if x == 'Attrited Customer' else 0)
 
-
-    # Define the black box function to optimize.
-    def black_box_function(C):
-        # C: SVC hyper parameter to optimize for.
-        model = SVC(C = C)
-        model.fit(X_train, y_train)
-        y_score = model.decision_function(X_test)
-        f = roc_auc_score(y_test, y_score)
-        return f
-
-    # Set range of C to optimize for.
-    # bayes_opt requires this to be a dictionary.
-    pbounds = {"C": [0.1, 10]}
-    
-    # Create a BayesianOptimization optimizer,
-    # and optimize the given black_box_function.
-    optimizer = BayesianOptimization(f = black_box_function, pbounds = pbounds, verbose = 2, random_state = 4)
-    optimizer.maximize(init_points = 5, n_iter = 10)
-
     models = [
-    LogisticRegression(),
-    SVC(),
-    SVC(C = optimizer.max["params"]['C']),
-    DecisionTreeClassifier(),
-    MLPClassifier(),
-    RandomForestClassifier()
+        LogisticRegression(),
+        SVC(),
+        DecisionTreeClassifier(),
+        MLPClassifier(),
+        RandomForestClassifier()
     ]
     
     model_names = [
         "Logistic_Regression",
-        "Support_Vector Machine",
-        "Support_Vector Machine (Optimized)",
+        "Support_Vector_Machine",
         "Decision_Tree",
         "Neural_Network",
         "Random_Forest"
     ]
+
+    if model_name == "Support_Vector_Machine_Optimized":
+        # Define the black box function to optimize.
+        def black_box_function(C):
+            # C: SVC hyper parameter to optimize for.
+            model = SVC(C = C)
+            model.fit(X_train, y_train)
+            y_score = model.decision_function(X_test)
+            f = roc_auc_score(y_test, y_score)
+            return f
+
+        # Set range of C to optimize for.
+        # bayes_opt requires this to be a dictionary.
+        pbounds = {"C": [0.1, 10]}
+        
+        # Create a BayesianOptimization optimizer,
+        # and optimize the given black_box_function.
+        optimizer = BayesianOptimization(f = black_box_function, pbounds = pbounds, verbose = 2, random_state = 4)
+        optimizer.maximize(init_points = 5, n_iter = 10)
+        
+        models = [
+            LogisticRegression(),
+            SVC(),
+            SVC(C = optimizer.max["params"]['C']),
+            DecisionTreeClassifier(),
+            MLPClassifier(),
+            RandomForestClassifier()
+        ]
+
+        model_names = [
+            "Logistic_Regression",
+            "Support_Vector_Machine",
+            "Support_Vector_Machine_Optimized",
+            "Decision_Tree",
+            "Neural_Network",
+            "Random_Forest"
+        ]
+    
+   
 
     for model,name in zip(models,model_names):
          if name == model_name:
             model.fit(X_train, y_train)
             return model
     
-    # if model_name == "pycaret_best":
-    #         exp_name = setup(data = df,  target = '0')
-    #         best = compare_models()
-    #         return best
-    # else:
-    #     return "Model Urecognized"
+    if model_name == "pycaret_best":
+            exp_name = setup(data = df,  target = '0')
+            best = compare_models(exclude = ['lr', 'svm', 'rbfsvm', 'dt', 'rf'])
+            X = df
+            return best
+    else:
+        return "Model Urecognized"
 
 
 def pretrained(model_name = "Logistic_Regression"):
@@ -161,48 +181,17 @@ def pretrained(model_name = "Logistic_Regression"):
     return train(df, model_name)
 
 
-def predict(X_test, model):
-    # X, y = preprocess_inputs(df)
-    # X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=123)
-        
-    # n_cols = df.shape[1]
-    # df.columns = [str(i) for i in range(n_cols)]
-    # df['0'] = df['0'].apply(lambda x: 1 if x == 'Attrited Customer' else 0)
+def predict(test_X, model):
+    if model == "Model Urecognized":
+        return "Prediction Failed"
+    else:
+        return model.predict(test_X)   
 
 
-    # # Define the black box function to optimize.
-    # def black_box_function(C):
-    #     # C: SVC hyper parameter to optimize for.
-    #     model = SVC(C = C)
-    #     model.fit(X_train, y_train)
-    #     y_score = model.decision_function(X_test)
-    #     f = roc_auc_score(y_test, y_score)
-    #     return f
-
-    # # Set range of C to optimize for.
-    # # bayes_opt requires this to be a dictionary.
-    # pbounds = {"C": [0.1, 10]}
-    
-    # # Create a BayesianOptimization optimizer,
-    # # and optimize the given black_box_function.
-    # optimizer = BayesianOptimization(f = black_box_function, pbounds = pbounds, verbose = 2, random_state = 4)
-    # optimizer.maximize(init_points = 5, n_iter = 10)
-    return model.predict(X_test)
-    
-    # if model_name == "pycaret_best":
-    #         res = predict_model(train(df, model_name), X_test)
-    #         lbl = res['Label']
-    #         print(train(df, model_name))
-    #         print(confusion_matrix(y_test,lbl))
-    #         print(classification_report(y_test,lbl))
-    #         print(accuracy_score(y_test, lbl))
-    #         print("\n")
-    # else:
-    #     return "Model Urecognized"
-    
 if __name__ == '__main__':
-    # df = get_data('https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv')
-    # model = pretrained("Logistic_Regression")
-    # X, y = preprocess_inputs(df)
-    # predict(X, model)
-    pass
+    df = get_data('https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv')
+    model = "Logistic_Regression"
+    m = pretrained(model)
+    print(m)
+    X, y = preprocess_inputs(df, model)
+    print(predict(X, m))
