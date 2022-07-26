@@ -7,9 +7,10 @@ long_description = (this_directory / "README.rst").read_text()
 
 setup(
     name='pybanking',
+    description = "Machine learning module for banking",
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    version='0.7',
+    version='0.9.1',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
@@ -22,7 +23,7 @@ setup(
           'pandas',
           'numpy',
           'bayesian-optimization',
-          '--pre pycaret'
+          'pycaret'
       ],
 
 )

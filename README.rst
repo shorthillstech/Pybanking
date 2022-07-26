@@ -2,7 +2,7 @@
 
 Banking Project
 ===============
-This is the banking project contains models on customer chrun, revenue prediction, and more. For queries contact apurv@shorthillstech.com.
+Machine learning is important for banking and finance because it can help banks and financial institutions to automate and improve their processes. Machine learning can help banks to identify and prevent fraud, to better assess risk, and to make better lending and investment decisions. Machine learning can also help financial institutions to better understand and predict customer behavior. This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale.
 
 Installing
 ============
@@ -21,7 +21,7 @@ Usage
     '0.24.2'
 
 Churn Prediction
-===============
+================
 
 In this module, we have a dataset that consists of 10,000 customers mentioning their age, salary, marital_status, credit card limit, credit card category, etc. There are nearly 18 features.
 
@@ -40,7 +40,7 @@ Solution:
     
 
 Marketing Prediction
-===============
+====================
 
 In this module, the data is related to direct marketing campaigns (phone calls) of a Portuguese banking institution. The classification goal is to predict if the client will subscribe to a term deposit (variable y).
 
@@ -58,7 +58,7 @@ Solution:
     >>> model_banking_deposit.predict(X, model)
     
 Transaction Prediction
-===============
+======================
 
 In this module, we help you identify which customers will make a specific transaction in the future, irrespective of the amount of money transacted. The data provided for this module has the same structure as the real data banks have available to solve this problem.
 
