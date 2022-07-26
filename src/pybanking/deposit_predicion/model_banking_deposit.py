@@ -22,7 +22,7 @@ from bayes_opt import BayesianOptimization, UtilityFunction # scipy==1.7.3
 import warnings
 warnings.filterwarnings("ignore")
 
-def get_data(train = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/banking_dataset_train.csv', test = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/banking_dataset_test.csv'):
+def get_data(train = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/banking_dataset_train.csv', test = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/banking_dataset_test.csv'):
     df_train = pd.read_csv(train, index_col=0, sep=';')
     df_test = pd.read_csv(test, index_col=0, sep=';')
     # c. Remove white spaces
