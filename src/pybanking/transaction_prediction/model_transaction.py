@@ -1,19 +1,17 @@
+import sys
+import os
 import pandas as pd
-import numpy as np
-
+import subprocess
 import collections.abc
 collections.Iterable = collections.abc.Iterable
 
-from pycaret.classification import *
 # from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
-
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
-
 from sklearn.metrics import roc_auc_score
 from bayes_opt import BayesianOptimization, UtilityFunction # scipy==1.7.3
 # from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
@@ -27,14 +25,27 @@ def get_data(train = 'https://raw.githubusercontent.com/shorthills-tech/open-dat
     df_test = pd.read_csv(test, index_col=0, sep=',')
     return df_train, df_test
 
+def analysis(df, input = "dataprep"):
+    script_dir = os.path.dirname( __file__ )
+    mymodule_dir = os.path.join( script_dir, '..', 'EDA' )
+    sys.path.append( mymodule_dir )
+    from data_analysis import Analysis
+    da = Analysis()
+
+    if input == "dataprep":
+        return da.dataprep_analysis(df)
+    elif input == "profiling":
+        return da.pandas_analysis(df)
+    elif input == "sweetviz":
+        return da.sweetviz_analysis(df)
+    else:
+        return "Wrong Input"
 
 # Preprocessing
 def preprocess_inputs(df_train, df_test, model_name = "Logistic_Regression"):
     y = df_train["target"]
     X = df_train.drop("target", axis = 1)
     return X, y
-
-
 
 def train(df_train, df_test, model_name = "Logistic_Regression"):
     X, y = preprocess_inputs(df_train, df_test)
@@ -93,18 +104,18 @@ def train(df_train, df_test, model_name = "Logistic_Regression"):
             "Neural_Network",
             "Random_Forest"
         ]
-    
-   
 
     for model,name in zip(models,model_names):
          if name == model_name:
             model.fit(X_train, y_train)
             return model
     
-    if model_name == "pycaret_best":
-            exp_name = setup(data = df_train,  target = 'target')
-            best = compare_models(exclude = ['lr', 'svm', 'rbfsvm', 'dt', 'rf'])
-            return best
+    if model_name == "Pycaret_Best":
+        subprocess.run(['pip', 'install', '--pre', 'pycaret'])
+        from pycaret.classification import setup, compare_models
+        exp_name = setup(data = df_train,  target = 'target')
+        best = compare_models(exclude = ['lr', 'svm', 'rbfsvm', 'dt', 'rf'])
+        return best
     else:
         return "Model Urecognized"
 
@@ -128,3 +139,4 @@ if __name__ == '__main__':
     print(m)
     X, y = preprocess_inputs(tr, ts)
     print(predict(ts, m))
+    analysis(tr, "profiling")
