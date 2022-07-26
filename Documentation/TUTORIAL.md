@@ -12,9 +12,10 @@ Solution:
 
 ```python
     from pybanking.churn_prediction import model_churn
-    df = model_churn.get_data()
-    model = model_churn.pretrained("Logistic_Regression")
-    X, y = model_churn.preprocess_inputs(df)
+    df = model_churn.get_data(dataset)
+    model_name = "Logistic_Regression"
+    model = model_churn.pretrained(model_name)
+    X, y = model_churn.preprocess_inputs(df, model_name)
     model_churn.predict(X, model)
 ```   
 
@@ -29,9 +30,10 @@ Telephonic marketing campaigns still remain one of the most effective way to rea
 Solution:
 ```python
     from pybanking.deposit_prediction import model_banking_deposit
-    df = model_banking_deposit.get_data()
-    model = model_banking_deposit.pretrained("Logistic_Regression")
-    X, y = model_banking_deposit.preprocess_inputs(df)
+    train, test = model_banking_deposit.get_data(dataset)
+    model_name = "Logistic_Regression"
+    model = model_banking_deposit.pretrained(model_name)
+    X, y = model_banking_deposit.preprocess_inputs(train, test)
     model_banking_deposit.predict(X, model)
 ```
     
@@ -44,8 +46,9 @@ Our data science team is continually challenging our machine learning algorithms
 Solution:
 ```python
     from pybanking.transaction_prediction import model_transaction
-    df = model_transaction.get_data()
-    model = model_transaction.pretrained("Logistic_Regression")
-    X, y = model_transaction.preprocess_inputs(df)
+    train, test = model_transaction.get_data(train_dataset, test_dataset)
+    model_name = "Logistic_Regression"
+    model = model_transaction.pretrained(model_name)
+    X, y = model_transaction.preprocess_inputs(train, test)
     model_transaction.predict(X, model)
 ```
