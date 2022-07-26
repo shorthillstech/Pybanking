@@ -7,5 +7,11 @@ src/pybanking.egg-info/SOURCES.txt
 src/pybanking.egg-info/dependency_links.txt
 src/pybanking.egg-info/requires.txt
 src/pybanking.egg-info/top_level.txt
+src/pybanking/churn_prediction/__init__.py
+src/pybanking/churn_prediction/model_churn.py
+src/pybanking/deposit_prediction/__init__.py
+src/pybanking/deposit_prediction/model_banking_deposit.py
 src/pybanking/example/__init__.py
 src/pybanking/example/custom_sklearn.py
+src/pybanking/transaction_prediction/__init__.py
+src/pybanking/transaction_prediction/model_transaction.py
