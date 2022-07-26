@@ -9,7 +9,7 @@ setup(
     name='pybanking',
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    version='0.4',
+    version='0.7',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
@@ -21,7 +21,8 @@ setup(
           'scikit-learn',
           'pandas',
           'numpy',
-          'bayesian-optimization'
+          'bayesian-optimization',
+          '--pre pycaret'
       ],
 
 )
