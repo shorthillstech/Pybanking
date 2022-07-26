@@ -10,7 +10,7 @@ setup(
     description = "Machine learning module for banking",
     long_description=long_description,
     long_description_content_type='text/x-rst',
-    version='0.9.2',
+    version='0.9.3',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
@@ -22,8 +22,7 @@ setup(
           'scikit-learn',
           'pandas',
           'numpy',
-          'bayesian-optimization',
-          'pycaret'
+          'bayesian-optimization'
       ],
 
 )
