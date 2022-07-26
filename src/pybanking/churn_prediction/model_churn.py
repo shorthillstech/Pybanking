@@ -16,15 +16,14 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import roc_auc_score
 from bayes_opt import BayesianOptimization, UtilityFunction # scipy==1.7.3
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+# from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
 import warnings
 warnings.filterwarnings("ignore")
 
-def get_data(url = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv'):
+def get_data(url = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/BankChurners.csv'):
     df = pd.read_csv(url,index_col=0)
     df = df.drop(df.columns[-2:], axis=1)
-#     df = df.drop('CLIENTNUM', axis=1)
     return df
 
 
@@ -170,7 +169,6 @@ def train(df, model_name = "Logistic_Regression"):
     if model_name == "pycaret_best":
             exp_name = setup(data = df,  target = '0')
             best = compare_models(exclude = ['lr', 'svm', 'rbfsvm', 'dt', 'rf'])
-            X = df
             return best
     else:
         return "Model Urecognized"
@@ -189,8 +187,8 @@ def predict(test_X, model):
 
 
 if __name__ == '__main__':
-    df = get_data('https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/BankChurners.csv')
-    model = "Logistic_Regression"
+    df = get_data()
+    model = "Random_Forest"
     m = pretrained(model)
     print(m)
     X, y = preprocess_inputs(df, model)

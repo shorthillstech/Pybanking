@@ -16,16 +16,15 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.metrics import roc_auc_score
 from bayes_opt import BayesianOptimization, UtilityFunction # scipy==1.7.3
-from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-import sklearn.metrics as metrics
+# from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+# import sklearn.metrics as metrics
 
 import warnings
 warnings.filterwarnings("ignore")
 
-def get_data(train = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/transaction_dataset_train.csv', test = 'https://raw.githubusercontent.com/nikhil0nk/credit_card_customer_churning/main/transaction_dataset_test.csv'):
+def get_data(train = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/transaction_dataset_train.csv', test = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/transaction_dataset_test.csv'):
     df_train = pd.read_csv(train, index_col=0, sep=',')
     df_test = pd.read_csv(test, index_col=0, sep=',')
-    # c. Remove white spaces
     return df_train, df_test
 
 
@@ -124,7 +123,7 @@ def predict(test_X, model):
 
 if __name__ == '__main__':
     tr, ts = get_data()
-    model = "pycaret_best"
+    model = "Random_Forest"
     m = pretrained(model)
     print(m)
     X, y = preprocess_inputs(tr, ts)
