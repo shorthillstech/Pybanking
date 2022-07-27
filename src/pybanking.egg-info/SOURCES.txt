@@ -7,6 +7,8 @@ src/pybanking.egg-info/SOURCES.txt
 src/pybanking.egg-info/dependency_links.txt
 src/pybanking.egg-info/requires.txt
 src/pybanking.egg-info/top_level.txt
+src/pybanking/EDA/__init__.py
+src/pybanking/EDA/data_analysis.py
 src/pybanking/churn_prediction/__init__.py
 src/pybanking/churn_prediction/model_churn.py
 src/pybanking/deposit_prediction/__init__.py
