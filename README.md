@@ -2,7 +2,7 @@
 ![alt text](logo.png "Shorthills Tech")
 
 ## Banking Project
-Machine learning is important for banking and finance because it can help banks and financial institutions to automate and improve their processes. Machine learning can help banks to identify and prevent fraud, to better assess risk, and to make better lending and investment decisions. Machine learning can also help financial institutions to better understand and predict customer behavior. This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale.
+Pybanking is an open source library that has the state of the art machine learning models for the banking industry. [Documentation](https://pybanking.gitbook.io/pybanking-shorthillstech/) can be found here along with tutorials and sample datasets. Machine learning is important for banking and finance because it can help banks and financial institutions to automate and improve their processes. Machine learning can help banks to identify and prevent fraud, to better assess risk, and to make better lending and investment decisions. Machine learning can also help financial institutions to better understand and predict customer behavior. This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale.
 
 ## Installing
 
