@@ -1,4 +1,3 @@
-from fileinput import filename
 import subprocess
 
 class Analysis:
@@ -9,8 +8,9 @@ class Analysis:
 
     def dataprep_analysis(self, df):
         subprocess.run(['pip', 'install', 'dataprep'])
-        from dataprep.eda import plot, create_report
-        return create_report(df).save(filename='Dataprep_report.html')
+        from dataprep.eda import create_report
+        report = create_report(df)
+        return report.save('Dataprep_report.html')
     
     def pandas_analysis(self, df):
         subprocess.run(['pip', 'install', 'pandas-profiling'])
