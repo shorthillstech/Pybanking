@@ -16,7 +16,7 @@ setup(
     author_email='apurv@shorthillstech.com',
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    url='https://github.com/shorthills-tech/pybanking',
+    url='https://github.com/shorthillstech/pybanking',
     keywords='banking project',
     install_requires=[
           'scikit-learn',
