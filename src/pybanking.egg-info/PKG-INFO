@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: pybanking
-Version: 0.9.4
+Version: 0.9.6
 Summary: Machine learning module for banking
-Home-page: https://github.com/shorthills-tech/pybanking
+Home-page: https://github.com/shorthillstech/pybanking
 Author: Shorthills Tech
 Author-email: apurv@shorthillstech.com
 License: MIT
