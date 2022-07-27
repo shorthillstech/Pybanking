@@ -9,11 +9,9 @@ class Analysis:
     def dataprep_analysis(self, df):
         subprocess.run(['pip', 'install', 'dataprep'])
         from dataprep.eda import plot, create_report
-        return create_report(df).show_browser(), plot(df).show_browser()
+        return create_report(df).save(), plot(df).save()
     
     def pandas_analysis(self, df):
         subprocess.run(['pip', 'install', 'pandas-profiling'])
         from pandas_profiling import ProfileReport
-        import webbrowser
-        ProfileReport(df).to_file("report.html")
-        return webbrowser.open_new_tab("report.html")
+        return ProfileReport(df).to_file()
