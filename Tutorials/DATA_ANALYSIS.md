@@ -57,9 +57,9 @@ Imports Analysis().dataprep_analysis from /pybanking/src/pybanking/EDA/data_anal
 ```python
     da.dataprep_analysis(df)
 ```   
-<a href="pybanking/gitbook_data/DataPrep Report.html">Dataprep output report HTML</a>
+<a href="DataPrep_Report.html">Dataprep output report HTML</a>
 
-<a href="pybanking/gitbook_data/DataPrep Plot.html">Dataprep output plot HTML</a>
+<!-- <a href="pybanking/gitbook_data/DataPrep Plot.html">Dataprep output plot HTML</a> -->
 
 <a href="https://docs.dataprep.ai/user_guide/eda/introduction.html#userguide-eda">Further Documentation on Dataprep</a>
 
@@ -86,7 +86,7 @@ Imports Analysis().dataprep_analysis from /pybanking/src/pybanking/EDA/data_anal
     da.sweetviz_analysis(df)
 ```   
 
-<a href="pybanking/gitbook_data/SWEETVIZ_REPORT.html">Sweetviz output HTML</a>
+<a href="SWEETVIZ_REPORT.html">Sweetviz output HTML</a>
 
 <a href="https://github.com/fbdesignpro/sweetviz">Further Documentation on Sweetviz</a>
 
@@ -113,7 +113,7 @@ Imports Analysis().dataprep_analysis from /pybanking/src/pybanking/EDA/data_anal
     da.pandas_analysis(df)
 ```   
 
-<a href="pybanking/gitbook_data/Pandas Profiling Report.html">Pandas profiling output HTML</a>
+<a href="Pandas_Profiling_Report.html">Pandas profiling output HTML</a>
 
 <a href="https://github.com/ydataai/pandas-profiling">Further Documentation on Pandas Profiling</a>
 

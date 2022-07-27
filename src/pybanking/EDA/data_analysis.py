@@ -10,9 +10,9 @@ class Analysis:
         subprocess.run(['pip', 'install', 'dataprep'])
         from dataprep.eda import create_report
         report = create_report(df)
-        return report.save('Dataprep_report.html')
+        return report.save('DataPrep_Report.html')
     
     def pandas_analysis(self, df):
         subprocess.run(['pip', 'install', 'pandas-profiling'])
         from pandas_profiling import ProfileReport
-        return ProfileReport(df).to_file("Profiling_report.html")
+        return ProfileReport(df).to_file("Pandas_Profiling_Report.html")
