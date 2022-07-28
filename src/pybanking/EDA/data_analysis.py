@@ -20,4 +20,6 @@ class Analysis:
     def pandas_analysis(self, df):
         subprocess.run(['pip', 'install', 'pandas-profiling'])
         from pandas_profiling import ProfileReport
+        if df.shape[1]>50:
+            return ProfileReport(df, minimal=True)
         return ProfileReport(df)
