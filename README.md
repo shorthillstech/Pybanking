@@ -14,7 +14,7 @@ This is an opensource library which aims to create state of the art machine lear
 - Marketing Prediction
 - Transaction Prediction
 
-<img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/images/models.png">
+<img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/images/model.png">
 
 If you want to use your own data for training/ prediction functions are implemented for the same.
 
