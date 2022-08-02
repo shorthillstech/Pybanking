@@ -10,7 +10,7 @@ setup(
     description = "Machine learning module for banking",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    version='0.9.8',
+    version='0.9.9.1',
     license='MIT',
     author="Shorthills Tech",
     author_email='apurv@shorthillstech.com',
