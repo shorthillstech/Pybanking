@@ -1,4 +1,4 @@
-<h3><img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/logo.png"> Banking Machine Learning - Pybanking is an open source library </h3>
+<h3><img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/logo.png"> Banking Machine Learning - Pybanking is an open source library</h3>
 
 ## Banking Project
 Pybanking is an open source library that has the state of the art machine learning models for the banking industry. [Documentation](https://pybanking.gitbook.io/pybanking-shorthillstech/) can be found here along with tutorials and sample datasets. To [contribute](https://github.com/shorthillstech/Pybanking/) to the project please feel free to send a pull request and out will review is at soon as possible. Machine Learning can help banks and financial institutions save money by automating and improving their processes. 
