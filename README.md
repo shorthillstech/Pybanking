@@ -3,7 +3,7 @@
 ## Banking Project
 Pybanking is an open source library that has the state of the art machine learning models for the banking industry. [Documentation](https://pybanking.gitbook.io/pybanking-shorthillstech/) can be found here along with tutorials and sample datasets. To [contribute](https://github.com/shorthillstech/Pybanking/) to the project please feel free to send a pull request and out will review is at soon as possible. Machine Learning can help banks and financial institutions save money by automating and improving their processes. 
 The AI journey for Banks and Financial institutions start with customer segmentation and understanding customer behaviour. Various statistical tools and exploratory analysis can be used to segment and understand customers and build their profile [Building 360 Customer Profile](https://towardsdatascience.com/enabling-data-ai-in-retail-banking-part-1-customer-analytics-journey-54a7ce7d2a81).
-
+![Customer 360](https://miro.medium.com/max/1244/0*6borG_TBlBbJLyCe.jpeg)
 On top of the customer profile, Machine learning can help banks to identify multiple revenue enhancement opportunities. Various predictive models like Revenue Prediction, Churn Prediction, Cross Selling Opportunities, Sales Funnel Analysis can be built to identify revenue opportunities. Models can also be built to prevent fraud, better assess risk, and to make better lending and investment decisions.
 
 This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale. Multiple parts of the project use open source data available from different projects.
