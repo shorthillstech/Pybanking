@@ -86,7 +86,7 @@ AUTHORS text
 #
 
 # (binary is a macro for -text -diff)
-*.png binary
+*.png text
 *.jpg binary
 *.jpeg binary
 *.gif binary
