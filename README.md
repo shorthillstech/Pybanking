@@ -90,6 +90,8 @@ model_transaction.predict(X, model)
 
 ![Hugging Face](https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mov)
 
+https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mov
+
 ## Contributing to Pybanking
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
