@@ -8,11 +8,13 @@ The AI journey for Banks and Financial institutions start with customer segmenta
 
 On top of the customer profile, Machine learning can help banks to identify multiple revenue enhancement opportunities. Various predictive models like Revenue Prediction, Churn Prediction, Cross Selling Opportunities, Sales Funnel Analysis can be built to identify revenue opportunities. Models can also be built to prevent fraud, better assess risk, and to make better lending and investment decisions.
 
-<p><img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/images/pred_models.png"> This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale. Multiple parts of the project use open source data available from different projects. </p>
+This is an opensource library which aims to create state of the art machine learning models to help all financial institutions deploy technology at scale. Multiple parts of the project use open source data available from different projects.
 
 - Churn Model
 - Marketing Prediction
 - Transaction Prediction
+
+<img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/images/models.png">
 
 If you want to use your own data for training/ prediction functions are implemented for the same.
 
