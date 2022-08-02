@@ -81,6 +81,13 @@ model = model_transaction.pretrained("Logistic_Regression")
 X, y = model_transaction.preprocess_inputs(df)
 model_transaction.predict(X, model)
 ```
+
+## Hugging Face
+
+<video width="320" height="240" controls>
+  <source src="https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mov" type="video/mp4">
+</video>
+
 ## Contributing to Pybanking
 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
