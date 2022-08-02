@@ -85,7 +85,7 @@ model_transaction.predict(X, model)
 ## Hugging Face
 
 <video width="320" height="240" controls>
-  <source src="https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mov" type="video/mp4">
+  <source src="https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mov" type="video/mov">
 </video>
 
 ## Contributing to Pybanking
