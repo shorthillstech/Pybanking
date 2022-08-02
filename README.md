@@ -36,6 +36,8 @@ custom_sklearn.get_sklearn_version()
 
 ## Churn Prediction
 
+Title: Credit Card Customers. Name: Sakshi Goyal. Link:[Kaggle](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers?datasetId=982921&sortBy=voteCount)
+
 ```python
     from pybanking.churn_prediction import model_churn
     df = model_churn.get_data()
@@ -46,6 +48,7 @@ custom_sklearn.get_sklearn_version()
 
 ## Marketing Prediction
 
+Title: Banking Dataset - Marketing Targets. Name: Prakhar Rathi. Link:[Kaggle](https://www.kaggle.com/datasets/prakharrathi25/banking-dataset-marketing-targets)
 
 ```python
     from pybanking.deposit_prediction import model_banking_deposit
@@ -56,6 +59,8 @@ custom_sklearn.get_sklearn_version()
 ```
     
 ## Transaction Prediction
+
+Title: Santander Customer Transaction Prediction. Name: Banco Santander. Link:[Kaggle](https://www.kaggle.com/competitions/santander-customer-transaction-prediction/overview)
 
 ```python
     from pybanking.transaction_prediction import model_transaction
