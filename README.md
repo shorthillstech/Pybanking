@@ -39,11 +39,11 @@ custom_sklearn.get_sklearn_version()
 Title: Credit Card Customers. Name: Sakshi Goyal. Link: [Kaggle](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers?datasetId=982921&sortBy=voteCount)
 
 ```python
-    from pybanking.churn_prediction import model_churn
-    df = model_churn.get_data()
-    model = model_churn.pretrained("Logistic_Regression")
-    X, y = model_churn.preprocess_inputs(df)
-    model_churn.predict(X, model)
+from pybanking.churn_prediction import model_churn
+df = model_churn.get_data()
+model = model_churn.pretrained("Logistic_Regression")
+X, y = model_churn.preprocess_inputs(df)
+model_churn.predict(X, model)
 ```   
 
 ## Marketing Prediction
@@ -51,11 +51,11 @@ Title: Credit Card Customers. Name: Sakshi Goyal. Link: [Kaggle](https://www.kag
 Title: Banking Dataset - Marketing Targets. Name: Prakhar Rathi. Link: [Kaggle](https://www.kaggle.com/datasets/prakharrathi25/banking-dataset-marketing-targets)
 
 ```python
-    from pybanking.deposit_prediction import model_banking_deposit
-    df = model_banking_deposit.get_data()
-    model = model_banking_deposit.pretrained("Logistic_Regression")
-    X, y = model_banking_deposit.preprocess_inputs(df)
-    model_banking_deposit.predict(X, model)
+from pybanking.deposit_prediction import model_banking_deposit
+df = model_banking_deposit.get_data()
+model = model_banking_deposit.pretrained("Logistic_Regression")
+X, y = model_banking_deposit.preprocess_inputs(df)
+model_banking_deposit.predict(X, model)
 ```
     
 ## Transaction Prediction
@@ -63,11 +63,11 @@ Title: Banking Dataset - Marketing Targets. Name: Prakhar Rathi. Link: [Kaggle](
 Title: Santander Customer Transaction Prediction. Name: Banco Santander. Link: [Kaggle](https://www.kaggle.com/competitions/santander-customer-transaction-prediction/overview)
 
 ```python
-    from pybanking.transaction_prediction import model_transaction
-    df = model_transaction.get_data()
-    model = model_transaction.pretrained("Logistic_Regression")
-    X, y = model_transaction.preprocess_inputs(df)
-    model_transaction.predict(X, model)
+from pybanking.transaction_prediction import model_transaction
+df = model_transaction.get_data()
+model = model_transaction.pretrained("Logistic_Regression")
+X, y = model_transaction.preprocess_inputs(df)
+model_transaction.predict(X, model)
 ```
 ## Contributing to Pybanking
 
