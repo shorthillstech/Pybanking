@@ -84,17 +84,9 @@ model_transaction.predict(X, model)
 
 ## Hugging Face
 
-<video width="320" height="240" controls>
-  <source src="https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mp4" type="video/mp4">
-</video>
+We have hosted the [Churn Prediction model on Hugging Face](https://huggingface.co/spaces/shorthillstech/pybanking_churn) along with the same data. If you would like to upload custom data, please design it in a similar format to sample data and upload it.
 
-a
-
-![Hugging Face](https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mp4)
-
-b
-
-https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.mp4
+![Hugging Face](https://github.com/shorthillstech/Pybanking/blob/main/images/Pybanking_Churn.gif)
 
 ## Contributing to Pybanking
 
