@@ -1,7 +1,7 @@
 <h3><img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/logo.png"> Banking Machine Learning - Pybanking is an open source library</h3>
 
 ## Banking Project
-Pybanking is an open source library that has the state of the art machine learning models for the banking industry. [Documentation](https://pybanking.gitbook.io/pybanking-shorthillstech/) can be found here along with tutorials and sample datasets. To [contribute](https://github.com/shorthillstech/Pybanking/) to the project please feel free to send a pull request and out will review is at soon as possible. Machine Learning can help banks and financial institutions save money by automating and improving their processes. 
+Pybanking is an open source library that has the state of the art machine learning models for the banking industry. [Documentation](https://pybanking.gitbook.io/pybanking-shorthillstech/) can be found here along with tutorials and sample datasets. To [contribute](https://github.com/shorthillstech/Pybanking/) to the project please feel free to send a pull request and our team will review is at soon as possible. Machine Learning can help banks and financial institutions save money by automating and improving their processes. 
 The AI journey for Banks and Financial institutions start with customer segmentation and understanding customer behaviour. Various statistical tools and exploratory analysis can be used to segment and understand customers and build their profile [Building 360 Customer Profile](https://towardsdatascience.com/enabling-data-ai-in-retail-banking-part-1-customer-analytics-journey-54a7ce7d2a81).
 
 <img align="center" src="https://github.com/shorthillstech/Pybanking/blob/main/images/cust360.png">
@@ -90,7 +90,7 @@ We have hosted the [Churn Prediction model on Hugging Face](https://huggingface.
 
 ## Contributing to Pybanking
 
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+We would love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
