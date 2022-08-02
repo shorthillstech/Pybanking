@@ -22,7 +22,7 @@ warnings.filterwarnings("ignore")
 
 def get_data(url = 'https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/BankChurners.csv'):
     df = pd.read_csv(url,index_col=0)
-    df = df.drop(df.columns[-2:], axis=1)
+    # df = df.drop(df.columns[-2:], axis=1)
     return df
 
 def analysis(df, input = "dataprep"):
