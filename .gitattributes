@@ -105,3 +105,10 @@ AUTHORS text
 *.woff binary
 *.pyc binary
 *.pdf binary
+
+# Exclude files from exporting
+#
+
+.gitattributes export-ignore
+.gitignore     export-ignore
+.gitkeep       export-ignore
