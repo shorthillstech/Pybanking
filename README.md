@@ -60,9 +60,9 @@ The model predicts whether a customer would subscribe for a term deposit in a di
 
 ```python
 from pybanking.deposit_prediction import model_banking_deposit
-df = model_banking_deposit.get_data()
+df_train, df_test = model_banking_deposit.get_data()
 model = model_banking_deposit.pretrained("Logistic_Regression")
-X, y = model_banking_deposit.preprocess_inputs(df)
+X, y = model_banking_deposit.preprocess_inputs(df_train, df_test)
 model_banking_deposit.predict(X, model)
 ```
     
@@ -76,9 +76,9 @@ The model predicts whether a customer will make a transaction in the future. It 
 
 ```python
 from pybanking.transaction_prediction import model_transaction
-df = model_transaction.get_data()
+df_train, df_test = model_transaction.get_data()
 model = model_transaction.pretrained("Logistic_Regression")
-X, y = model_transaction.preprocess_inputs(df)
+X, y = model_transaction.preprocess_inputs(df_train, df_test)
 model_transaction.predict(X, model)
 ```
 
