@@ -38,6 +38,10 @@ custom_sklearn.get_sklearn_version()
 
 Title: Credit Card Customers. Name: Sakshi Goyal. Link: [Kaggle](https://www.kaggle.com/datasets/sakshigoyal7/credit-card-customers?datasetId=982921&sortBy=voteCount)
 
+The dataset has 10,127 rows and 20 columns, namely, Attrition_Flag, Customer_Age, Gender, Dependent_count, Education_Level, Marital_Status, Income_Category, Card_Category, Months_on_book, Total_Relationship_Count, Months_Inactive_12_mon, Contacts_Count_12_mon, Credit_Limit, Total_Revolving_Bal, Avg_Open_To_Buy, Total_Amt_Chng_Q4_Q1, Total_Trans_Amt, Total_Trans_Ct, Total_Ct_Chng_Q4_Q1, Avg_Utilization_Ratio.
+
+The model predicts whether a credit card customer will churn (1) or not (0). It can help a bank to take proactive measures to provide customers better services and and turn their decision around.
+
 ```python
 from pybanking.churn_prediction import model_churn
 df = model_churn.get_data()
@@ -50,6 +54,10 @@ model_churn.predict(X, model)
 
 Title: Banking Dataset - Marketing Targets. Name: Prakhar Rathi. Link: [Kaggle](https://www.kaggle.com/datasets/prakharrathi25/banking-dataset-marketing-targets)
 
+The dataset has 45,211 rows and 16 columns, namely, Job, Marital, Education, Default, Balance, Housing, Loan, Contact, Day, Month, Duration, Campaign, Pdays, Previous, Poutcome.
+
+The model predicts whether a customer would subscribe for a term deposit in a direct marketing campaign. It can help the bank optimise their marketing spend and improve the ROI.
+
 ```python
 from pybanking.deposit_prediction import model_banking_deposit
 df = model_banking_deposit.get_data()
@@ -61,6 +69,10 @@ model_banking_deposit.predict(X, model)
 ## Transaction Prediction
 
 Title: Santander Customer Transaction Prediction. Name: Banco Santander. Link: [Kaggle](https://www.kaggle.com/competitions/santander-customer-transaction-prediction/overview)
+
+The dataset has 15,000 rows and 201 columns, namely, target, var_0 ... var_199. The data is encrpyted to safeguard the privacy of customer.
+
+The model predicts whether a customer will make a transaction in the future. It can help banks incentivce inactive customers.
 
 ```python
 from pybanking.transaction_prediction import model_transaction
