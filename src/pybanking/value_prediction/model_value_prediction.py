@@ -106,7 +106,6 @@ def train(tr_df,te_df,model_name):
         grid = GridSearchCV(estimator,param_grid,cv=5, scoring='neg_mean_squared_error', verbose=0, n_jobs=-1)
         grid.fit(train_X,train_y)
         best=grid.best_params_
-        print(best)
 
 
 
@@ -220,11 +219,9 @@ if __name__ == '__main__':
     model_name="Support_Vector_Machine_Optimized"
     tr_df,te_df = important_feat(train_df,test_df,model_name)
     m=pretrained(tr_df,te_df,model_name)
-    print(m)
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y=preprocess_inputs(tr_df,te_df,model_name)
     pred_test_y,m=predict(train_y,test_X,m)
-    print(pred_test_y)
-    #analysis(train_df,"sweetviz")
+    analysis(train_df,"sweetviz")
 
 
 
