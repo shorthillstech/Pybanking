@@ -6,13 +6,15 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.decomposition import TruncatedSVD
 from sklearn import preprocessing, model_selection, metrics
+from sklearn.model_selection import GridSearchCV
+from sklearn import svm
+from sklearn.svm import SVR
 import lightgbm as lgb
 from sklearn.preprocessing import StandardScaler
 from sklearn import ensemble
 from sklearn import utils
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -92,7 +94,41 @@ def train(tr_df,te_df,model_name):
         model = Lasso(alpha=0.0000001, max_iter = 10000)
         model.fit(train_X,train_y)
         return model
+    if model_name == "Support_Vector_Machine_Optimized":
+        #building a radial basis function kernel
+        estimator=SVR(kernel='rbf')
+        #arbitary param values to optimize
+        param_grid={
+            'C': [1.1, 5.4, 170, 1001],
+            'epsilon': [0.0003, 0.007, 0.0109, 0.019, 0.14, 0.05, 8, 0.2, 3, 2, 7],
+            'gamma': [0.7001, 0.008, 0.001, 3.1, 1, 1.3, 5]
+        }
+        grid = GridSearchCV(estimator,param_grid,cv=5, scoring='neg_mean_squared_error', verbose=0, n_jobs=-1)
+        grid.fit(train_X,train_y)
+        best=grid.best_params_
+        print(best)
 
+
+
+
+        
+        models = [
+            LogisticRegression(),
+            SVR(),
+            SVR(C = best['C'],epsilon=best['epsilon'],gamma=best['gamma']),
+            DecisionTreeClassifier(),
+            MLPClassifier(),
+            RandomForestClassifier()
+        ]
+
+        model_names = [
+            "Logistic_Regression",
+            "Support_Vector_Machine",
+            "Support_Vector_Machine_Optimized",
+            "Decision_Tree",
+            "Neural_Network",
+            "Random_Forest"
+        ]
 
     
    
@@ -181,12 +217,14 @@ def pretrained(tr_df,te_df,model_name):
 
 if __name__ == '__main__':
     train_df,test_df = get_data()
-    model_name="Support_Vector_Machine"
+    model_name="Support_Vector_Machine_Optimized"
     tr_df,te_df = important_feat(train_df,test_df,model_name)
     m=pretrained(tr_df,te_df,model_name)
+    print(m)
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y=preprocess_inputs(tr_df,te_df,model_name)
     pred_test_y,m=predict(train_y,test_X,m)
-    analysis(train_df,"sweetviz")
+    print(pred_test_y)
+    #analysis(train_df,"sweetviz")
 
 
 
