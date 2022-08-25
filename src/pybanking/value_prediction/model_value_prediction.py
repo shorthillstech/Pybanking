@@ -12,7 +12,7 @@ from sklearn import ensemble
 from sklearn import utils
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-from sklearn.svm import SVC
+from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -54,7 +54,7 @@ def train(tr_df,te_df,model_name):
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y= preprocess_inputs(tr_df,te_df,model_name)
     models = [
             LogisticRegression(),
-            SVC(),
+            SVR(),
             DecisionTreeClassifier(),
             MLPClassifier(),
             RandomForestClassifier()
@@ -181,12 +181,12 @@ def pretrained(tr_df,te_df,model_name):
 
 if __name__ == '__main__':
     train_df,test_df = get_data()
-    model_name="LGBM"
+    model_name="Support_Vector_Machine"
     tr_df,te_df = important_feat(train_df,test_df,model_name)
     m=pretrained(tr_df,te_df,model_name)
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y=preprocess_inputs(tr_df,te_df,model_name)
     pred_test_y,m=predict(train_y,test_X,m)
-    #analysis(train_df,"profiling")
+    analysis(train_df,"sweetviz")
 
 
 
