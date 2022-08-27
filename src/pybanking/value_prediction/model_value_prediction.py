@@ -1,4 +1,3 @@
-from ssl import VERIFY_ALLOW_PROXY_CERTS
 import sys
 import os
 import numpy as np # linear algebra
@@ -9,6 +8,7 @@ from sklearn import preprocessing, model_selection, metrics
 from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.svm import SVR
+from pybanking.churn_prediction.model_churn import preprocess_inputs
 import lightgbm as lgb
 from sklearn.preprocessing import StandardScaler
 from sklearn import ensemble
@@ -19,8 +19,6 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import mean_squared_error
-from bayes_opt import BayesianOptimization
-from pybanking.churn_prediction.model_churn import preprocess_inputs
 from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import mutual_info_regression
 from sklearn.linear_model import Lasso
@@ -201,7 +199,7 @@ def preprocess_inputs(train_df,test_df,model_name):
 
 
 #Prediction
-def predict(train_y, test_X, model):
+def predict(test_X, model):
     if model == "Model Urecognized":
         return "Prediction Failed"
     elif model == "LGBM":
@@ -216,11 +214,11 @@ def pretrained(tr_df,te_df,model_name):
 
 if __name__ == '__main__':
     train_df,test_df = get_data()
-    model_name="Support_Vector_Machine_Optimized"
+    model_name="Pycaret_Best"
     tr_df,te_df = important_feat(train_df,test_df,model_name)
     m=pretrained(tr_df,te_df,model_name)
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y=preprocess_inputs(tr_df,te_df,model_name)
-    pred_test_y,m=predict(train_y,test_X,m)
+    pred_test_y,m=predict(test_X,m)
     analysis(train_df,"sweetviz")
 
 
