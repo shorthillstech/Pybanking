@@ -8,6 +8,7 @@ from sklearn import preprocessing, model_selection, metrics
 from sklearn.model_selection import GridSearchCV
 from sklearn import svm
 from sklearn.svm import SVR
+from pybanking.churn_prediction.model_churn import preprocess_inputs
 import lightgbm as lgb
 from sklearn.preprocessing import StandardScaler
 from sklearn import ensemble
@@ -198,7 +199,7 @@ def preprocess_inputs(train_df,test_df,model_name):
 
 
 #Prediction
-def predict(train_y, test_X, model):
+def predict(test_X, model):
     if model == "Model Urecognized":
         return "Prediction Failed"
     elif model == "LGBM":
@@ -216,11 +217,9 @@ if __name__ == '__main__':
     model_name="Pycaret_Best"
     tr_df,te_df = important_feat(train_df,test_df,model_name)
     m=pretrained(tr_df,te_df,model_name)
-    print(m)
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y=preprocess_inputs(tr_df,te_df,model_name)
-    pred_test_y,m=predict(train_y,test_X,m)
-    print(pred_test_y)
-    #analysis(train_df,"sweetviz")
+    pred_test_y,m=predict(test_X,m)
+    analysis(train_df,"sweetviz")
 
 
 
