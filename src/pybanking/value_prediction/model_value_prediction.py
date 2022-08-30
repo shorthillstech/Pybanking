@@ -31,7 +31,7 @@ def get_data():
     test_df = pd.read_csv('https://raw.githubusercontent.com/shorthills-tech/open-datasets/main/Value_prediction_test.csv',index_col=0)
     return train_df,test_df
 #Exctract Important Features
-def important_feat(train_df,test_df,model_name):
+def important_feat(train_df,test_df,model_name="LGBM"):
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y= preprocess_inputs(train_df,test_df,model_name)
     if model_name=="Lasso":
         return train_df,test_df
@@ -50,7 +50,7 @@ def important_feat(train_df,test_df,model_name):
 
 
 #Training
-def train(tr_df,te_df,model_name):
+def train(tr_df,te_df,model_name="LGBM"):
     train_X,test_X,train_y,dev_X,val_X,dev_y,val_y= preprocess_inputs(tr_df,te_df,model_name)
     models = [
             LogisticRegression(),
@@ -168,7 +168,7 @@ def analysis(train_df, input = "dataprep"):
     else:
         return "Wrong Input"
 #Preprocessing
-def preprocess_inputs(train_df,test_df,model_name):
+def preprocess_inputs(train_df,test_df,model_name="LGBM"):
     unique_df = train_df.nunique().reset_index()
     unique_df.columns = ["col_name", "unique_count"]
     constant_df = unique_df[unique_df["unique_count"]==1]
@@ -209,8 +209,8 @@ def predict(test_X, model):
         pred_test_y=model.predict(test_X)
         return pred_test_y,model
 #Pretraining
-def pretrained(tr_df,te_df,model_name):
-    return train(tr_df,te_df,model_name)
+def pretrained(tr_df,te_df,model_name="LGBM"):
+    return train(tr_df,te_df,model_name="LGBM")
 
 if __name__ == '__main__':
     train_df,test_df = get_data()
